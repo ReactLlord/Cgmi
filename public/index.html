@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cgmi Impact Centre</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head> 
+<body>
+
+    <section class="header">
+       <nav>
+        <a href="index.html"><img src="images/cgmi-logo-removebg-preview.png" alt=""  class="logo-bg"></a>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="./index.html">HOME</a></li> 
+                <li><a href="./giving.html">GIVING</a></li>
+                <li><a href="./blog.html">BLOG</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+       </nav>
+
+       <div class="text-box">
+        <h1>Welcome to CGMI Impact Centre</h1>
+        <p>impacting Lives !</p>
+        <a href="https://www.youtube.com/@cgmimpactcentre" class="hero-btn" target="_blank">Watch Sermon</a> 
+       </div>
+    </section>
+
+ 
+
+  <!-- -------Testimony------- -->
+
+  <!-- <section class="cta">
+    <h1>Share Your testomony <br> Anywhere From The World</h1>
+    <a href="testimony.html" class="hero-btn">Testimonies</a>
+  </section> -->
+
+<!-- -----Footer------ -->
+
+
+<!-- <section class="footer">
+    
+        <p>Made with  <i class="fa fa-heart-o"></i> by Ebun Owoeye</p>
+</section> -->
+
+
+
+<!-- Pop-up  -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <img src="images/FullSizeRender - Copy (11).jpg" alt="Popup Image" />
+        <button id="closePopup">Close</button>
+    </div>
+</div>  
+
+
+
+<!-- pop-up  -->
+
+    <!-- ------- Javascript for Toggle Menu-------- -->
+   <script>
+
+    var navLinks = document.getElementById("navLinks")
+     
+    function showMenu(){
+        navLinks.style.right ="0"
+    }
+    function hideMenu(){
+        navLinks.style.right ="-200px"
+    }
+
+
+
+    // Pop-up 
+    // Show the popup on page load
+window.addEventListener('load', function () {
+    const popup = document.getElementById('popup');
+    popup.classList.add('show');
+});
+
+// Close the popup
+document.getElementById('closePopup').addEventListener('click', function () {
+    const popup = document.getElementById('popup');
+    popup.classList.remove('show');
+});
+
+
+   </script> 
+
+</body>
+</html>
