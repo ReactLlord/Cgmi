@@ -11,6 +11,7 @@ const EMAIL_USER = process.env.EMAIL_USER;
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/send-email', (req, res) => {
@@ -29,30 +30,27 @@ app.post('/send-email', (req, res) => {
   const mailOptions = {
     from: email,
     to: 'ebunowoeye316@gmail.com',
-    subject: 'New Message from Contact Form',
-    text: `Name: ${name}\nEmail: ${email}\nSubject:${subject}\n${message}`,
+    subject: `New Message: ${subject || 'No Subject'}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
   };
 
   // Send email
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
-      res.send('Error sending message');
+      console.error('Error sending message:', error);
+      res.status(500).send('Error sending message');
     } else {
-      console.log('Message sent: ' + info.response);
-      console.log('Message sent successfully ');
-      
-
-       
+      console.log('Message sent successfully:', info.response);
+      res.status(200).send('Message sent successfully');
     }
   });
 });
 
 // Serve the HTML form
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + 'public', 'index.html');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000');
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
