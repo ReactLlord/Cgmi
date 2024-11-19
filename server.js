@@ -4,7 +4,7 @@ const path = require('path');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
-const port = process.env.PORT || 5000; // Default to 5000 if PORT is not set
+const port = process.env.PORT || 3000; // Default to 5000 if PORT is not set
 const EMAIL_PASS = process.env.EMAIL_PASS;
 const EMAIL_USER = process.env.EMAIL_USER;
 
